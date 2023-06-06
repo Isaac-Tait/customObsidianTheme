@@ -1,34 +1,490 @@
+/* This Theme is called "Reverie" and Obsidian Theme created by Santi Younger */
+@import url("https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
 body {
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
+	--font-monospace: "Source Code Pro";
+	--wws-font-modern: "Modern Antiqua";
+	--wws-font-raleway: "Raleway";
+	--wws-font-text: "Modern Antiqua";
+	--wws-font-monospace: "Source Code Pro", Jetbrains Mono;
+	--wws-header-font: "Modern Antiqua";
+	--wws-header-font-caps-variant: normal;
+	--wws-font-tags: var(--wws-header-font);
+	--wws-font-callout-title: var(--wws-header-font);
+
+	--h1-font: var(--wws-font-raleway);
+	--h2-font: var(--wws-font-raleway);
+	--h3-font: var(--wws-font-raleway);
+	--h4-font: var(--wws-font-raleway);
+	--h5-font: var(--wws-font-raleway);
+	--h6-font: var(--wws-font-raleway);
+
+	--font-text-theme: var(--wws-font-text);
+	--font-monospace-theme: var(--wws-font-monospace);
+	--font-interface-theme: var(--wws-font-text);
+	--font-mermaid: var(--wws-font-monospace);
+
+	--footer-display: block;
+
+	@media screen and (max-width: 750px) {
+		/* ... rules and variables for mobile devices and smaller */
+		--footer-display: none;
+	}
 }
 
-.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
-	display: none;
+.published-container {
+	/* These are the Default Ones that Come with App.css */
+
+	/* Page width and padding */
+	--page-width: 100%;
+	--page-side-padding: 48px;
+
+	/* Page titles */
+	--page-title-color: var(--h1-color);
+	--page-title-font: var(--h1-font);
+	--page-title-line-height: var(--h1-line-height);
+	--page-title-size: 2.6em;
+	--page-title-style: var(--h1-style);
+	--page-title-variant: var(--h1-variant);
+	--page-title-weight: var(--h1-weight);
+
+	/* Component Titles */
+	--component-title-color: var(--text-normal);
+	--component-title-font: inherit;
+	--component-title-size: var(--font-ui-small);
+	--component-title-style: inherit;
+	--component-title-transform: uppercase;
+	--component-title-variant: inherit;
+	--component-title-weight: var(--font-semibold);
+
+	/* Inputs */
+	--input-height: 32px;
+
+	/* Graph */
+	--graph-height: 260px;
+
+	/* Sidebar */
+	--sidebar-font-size: 14px;
+	--sidebar-left-width: 280px;
+	--sidebar-left-background: var(--background-primary);
+	--sidebar-left-border-width: 1px;
+	--sidebar-left-border-color: var(--background-modifier-border);
+	--sidebar-right-width: 300px;
+	--sidebar-right-background: transparent;
+	--sidebar-right-border-width: 0px;
+	--sidebar-right-border-color: var(--background-modifier-border);
+
+	/* headers */
+	--logo-width: auto;
+	--logo-height: auto;
+	--logo-max-width: calc(100% - 18px);
+	--logo-max-height: 200px;
+	--logo-radius: 8px;
+	--header-height: 50px;
+	--site-name-color: var(--text-normal);
+	--site-name-color-hover: var(--text-muted);
+	--site-name-font: inherit;
+	--site-name-size: 22px;
+	--site-name-weight: var(--font-semibold);
+	--site-menu-icon-color: var(--text-faint);
+	--site-menu-icon-color-hover: var(--text-normal);
+	--site-menu-icon-size: 24px;
+
+	/* Navigation */
+	--nav-collapse-icon-color: var(--text-faint);
+	--nav-collapse-icon-color-hover: var(--text-muted);
+	--nav-parent-item-color: var(--text-normal);
+	--nav-parent-item-color-active: var(--text-accent);
+	--nav-parent-item-weight: var(--font-medium);
+	--nav-item-color: var(--text-muted);
+	--nav-item-color-hover: var(--text-normal);
+	--nav-item-color-active: var(--text-accent);
+	--nav-item-border-color: var(--background-modifier-border);
+	--nav-item-border-color-active: var(--text-accent);
+	--nav-item-weight-active: var(--font-medium);
+
+	/* Outline */
+	--outline-heading-color: var(--text-muted);
+	--outline-heading-color-hover: var(--text-normal);
+	--outline-heading-color-active: var(--text-accent);
+	--outline-heading-weight-active: var(--font-semibold);
+
+	/* Footer */
+	--footer-display: block;
+
+	@media screen and (max-width: 750px) {
+		/* ... rules and variables for mobile devices and smaller */
+		--footer-display: none;
+	}
 }
 
-svg * {
-	stroke-linecap: square;
-	stroke-linejoin: miter;
-	rx: 0;
-	ry: 0;
+/*-----------------------------------------*/
+/* Beginning of main theme, extra functionality can be added above */
+
+.theme-dark {
+	--background-primary: #1a2023;
+	--background-primary-alt: #1a2023;
+	--background-secondary: #222b2f;
+	--background-secondary-alt: #073334;
+	--text-normal: #faf2d6;
+	--text-faint: #bdae93;
+	--text-title-h1: #c1dde1;
+	--text-title-h2: #8ab8bd;
+	--text-title-h3: #56a7b0;
+	--text-title-h4: #309093;
+	--text-title-h5: #0b797d;
+	--text-title-h6: #0b797d;
+	--text-highlight-bg: #22a578;
+	--text-link: #83a598;
+	--text-a-hover: #83a598;
+	--inline-code: #83a598;
+	--code-block: #83a598;
+	--text-a: #2ccab7;
+	--interactive-accent: #0b797d;
+	--text-accent: #2ccab7;
+	--text-on-accent: #fff;
+	--interactive-accent-rgb: #2ccab7;
+	--vim-cursor: #2ccab7;
+	/*  --text-mark:                  add text-mark if needed, this should work together with 'mark' */
+	--pre-code: #073334;
+	--interactive-before: #7c6f64;
+	--background-modifier-border: #95c1bb;
+	--text-selection: #16304d;
 }
 
-.menu {
-	padding: var(--size-2-1);
+.theme-dark .cm-s-obsidian span.obsidian-search-match-highlight {
+	color: var(--text-normal);
+	background-color: #483699;
 }
 
-.menu-item {
-	padding: var(--size-4-1) var(--size-4-2);
+.theme-light {
+	--background-primary: #dfe7e8;
+	--background-primary-alt: #e7e7e7;
+	--background-secondary: #e3e3e3; /* thick menu border */
+	--background-secondary-alt: #bebebe; /* ← ↓  corner */
+	--text-normal: #1a2023;
+	--text-faint: #665c54;
+	--text-title-h1: #1bb0b6;
+	--text-title-h2: #3fa7ab;
+	--text-title-h3: #458588;
+	--text-title-h4: #4b6667;
+	--text-title-h5: #3b4646;
+	--text-link: #458588;
+	--text-a-hover: #458588;
+	--inline-code: #458588;
+	/*  --text-mark:                  add if needed */
+	--pre-code: #bebebe;
+	/*  --text-highlight-bg:          add if needed */
+	--interactive-before: #a89984;
+	--background-modifier-border: #1bb0b6;
+	--text-a: #22a578;
+	--interactive-accent: #22a578;
+	--text-accent: #22a578;
+	--interactive-accent-rgb: #22a578;
+	--vim-cursor: #22a578;
+	/*  --text-selection:             add if needed */
 }
 
-.menu-separator {
-	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+h1,
+.markdown-rendered h1,
+.cm-line:not(.HyperMD-codeblock) .cm-header-1,
+.HyperMD-list-line .cm-header-1 {
+	font-variant-caps: var(--wws-header-font-caps-variant);
+}
+
+.cm-header-1,
+.markdown-preview-section h1 {
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--text-title-h1);
+}
+
+.cm-header-2,
+.markdown-preview-section h2 {
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--text-title-h2);
+}
+
+.cm-header-3,
+.markdown-preview-section h3 {
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--text-title-h3);
+}
+
+.cm-header-4,
+.markdown-preview-section h4 {
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--text-title-h4);
+}
+
+.cm-header-5,
+.markdown-preview-section h5 {
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--text-title-h5);
+}
+
+.cm-header-6,
+.markdown-preview-section h6 {
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--text-title-h5);
+}
+
+/* ------------ other basic theme configurations ------------*/
+
+.theme-dark code[class*="language-"],
+.theme-dark pre[class*="language-"],
+.theme-light code[class*="language-"],
+.theme-light pre[class*="language-"] {
+	text-shadow: none;
+	background-color: var(--pre-code);
+}
+
+.graph-view.color-circle,
+.graph-view.color-fill-highlight,
+.graph-view.color-line-highlight {
+	color: var(--interactive-accent-rgb);
+}
+.graph-view.color-text {
+	color: var(--text-a-hover);
+}
+/*
+     .graph-view.color-fill
+     {
+     color: var(--background-secondary);
+     }
+     .graph-view.color-line
+     {
+     color: var(--background-modifier-border);
+     }
+     */
+
+html,
+body {
+	font-size: 16px;
+}
+
+strong {
+	font-weight: 600;
+}
+
+a,
+.cm-hmd-internal-link {
+	color: var(--text-a);
+	text-decoration: none;
+}
+
+a:hover,
+.cm-hmd-internal-link:hover,
+.cm-url {
+	color: var(--text-a-hover);
+	text-decoration: none;
+}
+
+mark {
+	color: #e5a200;
+	background-color: var(--text-mark);
+}
+
+.view-actions a {
+	color: var(--text-normal);
+}
+
+.view-actions a:hover {
+	color: var(--text-a);
+}
+
+.HyperMD-codeblock-bg {
+	background-color: var(--pre-code);
+}
+
+.HyperMD-codeblock {
+	line-height: 1.4em;
+	color: var(--code-block);
+}
+
+.HyperMD-codeblock-begin {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.HyperMD-codeblock-end {
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+th {
+	font-weight: 600;
+}
+
+thead {
+	border-bottom: 2px solid var(--background-modifier-border);
+}
+
+.HyperMD-table-row {
+	padding-right: 4px;
+	padding-left: 4px;
+	line-height: normal;
+	/*     background-color: var(--pre-code); */
+}
+
+.HyperMD-table-row-0 {
+	/* padding-top: 4px; */
+}
+
+.nav-file-tag {
+	color: var(--text-a);
+}
+
+.is-active .nav-file-title {
+	color: var(--text-a);
+	background-color: var(--background-primary-alt);
+}
+
+.nav-file-title {
+	border-radius: 0;
+}
+
+img {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.HyperMD-list-line {
+	padding-top: 0;
+}
+
+.markdown-preview-section pre code,
+.markdown-preview-section code {
+	font-size: 0.9em;
+	background-color: var(--pre-code);
+}
+
+.markdown-preview-section pre code {
+	display: block;
+	padding: 4px;
+	line-height: 1.4em;
+	color: var(--code-block);
+}
+
+.markdown-preview-section code {
+	color: var(--inline-code);
+}
+
+.cm-inline-code {
+	padding: 1px;
+	color: var(--inline-code);
+	background-color: var(--pre-code);
+}
+
+.workspace-leaf-header-title {
+	font-weight: 600;
+}
+
+.side-dock-title {
+	padding-top: 15px;
+	font-size: 20px;
+}
+
+.side-dock-ribbon-tab:hover,
+.side-dock-ribbon-action:hover,
+.side-dock-ribbon-action.is-active:hover,
+.nav-action-button:hover,
+.side-dock-collapse-btn:hover {
+	color: var(--text-a);
+}
+
+.side-dock {
+	border-right: 0;
+}
+
+.cm-s-obsidian,
+.markdown-preview-view {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+/* vertical resize-handle */
+.workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+	width: 1px;
+	background-color: var(--background-secondary-alt);
+}
+
+/* horizontal resize-handle */
+.workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle {
+	height: 1px;
+	background-color: var(--background-secondary-alt);
+}
+
+/* Remove vertical split padding */
+.workspace-split.mod-root,
+.workspace-split.mod-vertical,
+.workspace-leaf-content,
+.workspace-split.mod-vertical > .workspace-split,
+.workspace-split.mod-vertical > .workspace-leaf,
+.workspace-tabs {
+	padding-right: 0;
+}
+
+.markdown-embed-title {
+	font-weight: 600;
+}
+
+.markdown-embed {
+	margin-right: 10px;
+	margin-left: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.suggestion-item.is-selected {
+	background-color: var(--background-secondary);
+}
+
+.empty-state-container:hover {
+	background-color: var(--background-secondary-alt);
+	border: 5px solid var(--interactive-accent);
+}
+
+.checkbox-container {
+	background-color: var(--interactive-before);
+}
+
+.checkbox-container:after {
+	background-color: var(--background-secondary-alt);
+}
+
+.mod-cta {
+	font-weight: 600;
+	color: var(--background-secondary-alt);
+}
+
+.mod-cta:hover {
+	font-weight: 600;
+	background-color: var(--interactive-before);
+}
+input.task-list-item-checkbox {
+	-webkit-appearance: none;
+	appearance: none;
+	border: 1px solid #7c6f64;
+}
+
+input.task-list-item-checkbox:checked {
+	background-color: #7c6f64;
+	box-shadow: inset 0 0 0 2px var(--background-primary);
+}
+
+.cm-fat-cursor .CodeMirror-cursor {
+	width: 9px;
+	visibility: visible;
+	opacity: 60%;
+	background-color: #2ccab7;
 }
