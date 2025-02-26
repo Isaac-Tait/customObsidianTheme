@@ -36,6 +36,10 @@ body {
 .published-container {
 	/* These are the Default Ones that Come with App.css */
 
+	.el-ul {
+		margin-left: 4em;
+	}
+
 	/* Page width and padding */
 	--page-width: 100%;
 	--page-side-padding: 48px;
@@ -289,10 +293,6 @@ a:hover,
 mark {
 	color: #e5a200;
 	background-color: var(--text-mark);
-}
-
-.el-ul {
-	margin-left: 4em;
 }
 
 .view-actions a {
