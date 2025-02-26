@@ -291,6 +291,10 @@ mark {
 	background-color: var(--text-mark);
 }
 
+.el-ul {
+	margin-left: 4em;
+}
+
 .view-actions a {
 	color: var(--text-normal);
 }
